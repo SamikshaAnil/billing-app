@@ -1,0 +1,17 @@
+const mongoose=require('mongoose')
+const {Schema,model}=mongoose
+const customerSchema=new Schema({
+    name:String,
+    contact:{
+        email:String,
+        mobile:String
+    },
+    outstandingBalance:{
+        type:Number,
+        default:0
+    },
+    purchaseHistory:[Schema.Types.ObjectId],
+    paymentHistory:[Schema.Types.ObjectId],
+},{timestamps:true})
+ const Customer=model('Customer',customerSchema)
+ module.exports=Customer
